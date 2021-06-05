@@ -1,6 +1,24 @@
 # MechaCar Statistical Analysis Using R
 
 ## Linear Regression to Predict MPG
+I designed a linear model that predicts the mpg of MechaCar prototypes using several variables including vehicle length, weight, spoiler angle, drivetrain and ground clearance. To create the linear regression, I read the data csv file, used the lm() function to create the linear regression, and used the summary() function to produce the summary statistics.
+
+```
+#import libraries
+library(dplyr)
+
+#read file
+MechaCarData <- read.csv(file='MechaCar_mpg.csv',check.names=F,stringsAsFactors=F)
+
+#create linear regression
+lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD,data=MechaCarData)
+
+#create summary
+summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD,data=MechaCarData))
+```
+
+The script produced the following data:
+
 ![Linear Regression MPG](/Resources/linreg_mpg.PNG)
 
  - The variables that provided a non-random amount of variance to the mpg values in the dataset were "vehicle_length" and "ground_clearance."
@@ -11,3 +29,4 @@
 ![Total Summary](/Resources/totalsummary.PNG)
 
 ![Lot Summary](/Resources/lotsummary.PNG)
+
