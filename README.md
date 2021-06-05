@@ -52,11 +52,11 @@ I performed t-tests to determine if all manufacturing lots and each lot individu
 t.test(SuspensionData$PSI, mu=1500)
 
 #t-test for lot 1
-t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot1", mu=1500)
+t.test(subset(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot1"), mu=1500)
 #t-test for lot 2
-t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot2", mu=1500)
+t.test(subset(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot2"), mu=1500)
 #t-test for lot 3
-t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot3", mu=1500)
+t.test(subset(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot3"), mu=1500)
 ```
 
 The script produced the following analysis:
