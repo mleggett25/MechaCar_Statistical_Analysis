@@ -35,8 +35,10 @@ lot_summary <- SuspensionData %>% group_by(Manufacturing_Lot) %>% summarize(Mean
 The script produced the following tables:
 
 Total Summary Statistics
+
 ![Total Summary](/Resources/totalsummary.PNG)
 
 Per Lot Summary Statistics
+
 ![Lot Summary](/Resources/lotsummary.PNG)
 
