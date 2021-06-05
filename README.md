@@ -13,12 +13,12 @@ lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AW
 summary(lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + ground_clearance + AWD,data=MechaCarData))
 ```
 
-The script produced the following data:
+The script produced the following analysis:
 
 ![Linear Regression MPG](/Resources/linreg_mpg.PNG)
 
  - The variables that provided a non-random amount of variance to the mpg values in the dataset were "vehicle_length" and "ground_clearance."
- - The p-value (5.35e-11) is much smaller than a significance level of 0.05. This means that the slope of the linear model is not considered to be zero because the statistical analysis provides sufficient evidence that the null hypothesis is not true.
+ - The p-value (5.35e-11) is much smaller than a significance level of 0.01 and is therefore highly significant. This means that the slope of the linear model is not considered to be zero because the statistical analysis provides sufficient evidence that the null hypothesis is not true.
  - The linear model does predict mpg of MechaCar prototypes effectively as the r-squared value is 0.7149. This means that there is about a 71.5% chance that future data will be able to fit this model.
 
 ## Summary Statistics on Suspension Coils
@@ -52,10 +52,36 @@ I performed t-tests to determine if all manufacturing lots and each lot individu
 t.test(SuspensionData$PSI, mu=1500)
 
 #t-test for lot 1
-t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot 1", mu=1500)
+t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot1", mu=1500)
 #t-test for lot 2
-t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot 2", mu=1500)
+t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot2", mu=1500)
 #t-test for lot 3
-t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot 3", mu=1500)
+t.test(SuspensionData$PSI, SuspensionData$Manufacturing_Lot == "Lot3", mu=1500)
 ```
+
+The script produced the following analysis:
+
+T-Test for All Manufacturing Lots
+
+![T-Test All](/Resources/ttest_all.PNG)
+
+The t-test for all manufacturing lots had a p-value of 0.06, meaning that there is enough evidence to reject the null hypothesis. Therefore, the mean PSI of all manufacturing lots is statistically different from the population mean of 1,500 pounds per square inch.
+
+T-Test for Lot 1
+
+![T-Test Lot 1](/Resources/ttest_lot1.PNG)
+
+The t-test for Lot 1 had a p-value of 1, meaning that there is not enough evidence to reject the null hypothesis. Therefore, the mean PSI of Lot 1 is not statistically different from the population mean of 1,500 pounds per square inch.
+
+T-Test for Lot 2
+
+![T-Test Lot 2](/Resources/ttest_lot2.PNG)
+
+The t-test for Lot 2 had a p-value of 0.61, meaning that there is not enough evidence to reject the null hypothesis. Therefore, the mean PSI of Lot 2 is not statistically different from the population mean of 1,500 pounds per square inch.
+
+T-Test for Lot 3
+
+![T-Test Lot 3](/Resources/ttest_lot3.PNG)
+
+The t-test for Lot 3 had a p-value of 0.04, meaning that there is enough evidence to reject the null hypothesis. Therefore, the mean PSI of Lot 3 is statistically different from the population mean of 1,500 pounds per square inch.
 
